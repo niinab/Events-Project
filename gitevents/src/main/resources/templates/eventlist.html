@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Eventlist</title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap-4.0.0-dist/css/bootstrap.min.css" th:href="@{css/bootstrap-4.0.0-dist/css/bootstrap.min.css}" />
+</head>
+<h1>Welcome to Event finder</h1>
+<body>
+<div class="col-md-4">
+	<h2>All Events</h2>
+	</div>
+	<div class="col-md-4">
+ 	<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3> 
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sing out" class="btn btn-danger" />
+	</form>
+	</div>	
+<table class="table table-striped">
+<tr>
+<th>Name</th>
+	<th>Date</th>
+	<th>Time</th>
+	<th>Description</th>
+	<th>Price</th>
+	<th>Category</th>
+	<th>Location</th>
+	<th sec:authorize="hasAuthority('ADMIN')"> </th>
+	<th sec:authorize="hasAuthority('ADMIN')"> </th>
+</tr>
+
+<tr th:each="event : ${events}">
+
+<td th:text="${event.name}">name</td>
+<td th:text="${event.date}">date</td>
+<td th:text="${event.time}">time</td>
+<td th:text="${event.description}">description</td>
+<td th:text="${event.price}">price</td>
+<td th:text="${event.category.name}">category</td>
+<td th:text="${event.location.name}">location</td>
+
+<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${event.id})}" class="btn btn-danger">Delete</a></td>
+<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editevent/{id}(id=${event.id})}" class="btn btn-warning">Edit</a></td>
+</tr>
+</table>
+
+<a href="/newevent" class="btn btn-success">New event</a>
+</body>
+</html>

@@ -18,8 +18,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	private final UserRepository repository;
 	
 	@Autowired
-	public UserDetailServiceImpl(UserRepository usRepository) {
-		this.repository = usRepository;
+	public UserDetailServiceImpl(UserRepository userRepository) {
+		this.repository = userRepository;
 	}
 
 	@Override

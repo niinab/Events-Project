@@ -25,10 +25,10 @@ public class EventController {
 	private EventRepository eventRepository;
 	
 	@Autowired 
-	CategoryRepository catRepository;
+	private CategoryRepository catRepository;
 	
 	@Autowired 
-	LocationRepository locRepository;
+	private LocationRepository locRepository;
 	
 	@RequestMapping(value = "/allevents", method = RequestMethod.GET)
 	public String getAllEvents(Model model) {

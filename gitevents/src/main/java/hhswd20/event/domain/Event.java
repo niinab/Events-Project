@@ -1,5 +1,6 @@
 package hhswd20.event.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -8,6 +9,7 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+@Entity
 public class Event {
 	
 	@Id
@@ -118,7 +120,7 @@ public class Event {
 	public String toString() {
 		if (this.category != null)
 			return "Event [id=" + id + ", name=" + name +", date=" + date +", time=" + time + ", description=" + description + ", price=" + price
-					+ " category=" + this.getCategory() + "]";
+					+ " category=" + this.getCategory() + ", location =" + this.getLocation() + "]";
 		else 
 			return "Event [id=" + id + ", name=" + name +", date=" + date + ", time=" + time + ", description=" + description + ", price=" + price
 					+ "]";

@@ -1,4 +1,4 @@
-package hhswd20.events;
+package hhswd20.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import hhswd20.event.controller.UserDetailServiceImpl;
+
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)

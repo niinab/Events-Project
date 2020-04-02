@@ -10,8 +10,9 @@ import org.springframework.stereotype.Service;
 import hhswd20.event.domain.User;
 import hhswd20.event.domain.UserRepository;
 
-/**
- * This class is used by spring security to authenticate and authorize user
+
+/**This class is used by spring security to authenticate and authorize user
+
  **/
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
@@ -30,4 +31,4 @@ public class UserDetailServiceImpl implements UserDetailsService {
 				AuthorityUtils.createAuthorityList(curruser.getRole()));
 		return user;
 	}
-}
+} 

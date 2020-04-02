@@ -37,7 +37,7 @@ public class EventController {
 		return "eventlist";
 	}
 	
-	//REST all events 
+	//REST service to get all events 
 	@RequestMapping(value = "/events", method = RequestMethod.GET)
 	public @ResponseBody List<Event> eventListRest() {
 		return (List<Event>) eventRepository.findAll();
@@ -66,6 +66,7 @@ public class EventController {
 		
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteEvent(@PathVariable("id") Long eventId) {
 		eventRepository.deleteById(eventId);

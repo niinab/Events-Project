@@ -1,4 +1,4 @@
-package hhswd20.events;
+package hhswd20.event;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,10 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import hhswd20.event.domain.Category;
-import hhswd20.event.domain.CategoryRepository;
 import hhswd20.event.domain.Event;
 import hhswd20.event.domain.EventRepository;
+import hhswd20.event.domain.Category;
+import hhswd20.event.domain.CategoryRepository;
 import hhswd20.event.domain.Location;
 import hhswd20.event.domain.LocationRepository;
 import hhswd20.event.domain.User;
@@ -53,8 +53,8 @@ public class EventsApplication {
 			eventRepository.save(new Event("Ravintolapäivä", "24.07.2020", "Klo 13.00-18.00", "Ravintolapäivässä tarjolla uusia ja vanhoja makuja. Tule herkuttelemaan", 0.00, category3, location4));
 			
 			//user/password1, admin/password2
-			User user1 = new User("user", "$2a$09$7FiG7wiRHqA86mg1ADbNueP/7KkJFRCkhE86cU.b8KCIN/atfm42q", "USER");
-			User user2 = new User("admin", "$2a$09$1lY26O9z.zfK2W8qxDbFyOg2sUFeWOpqZS/Lf3f.K2aP9PJpOFG.e", "ADMIN");
+			User user1 = new User("user", "$2a$09$Edug0wYYjf4yRZsw6BanmeHfrB/97Fwi.MFn78eLiAMgUuOlnl.ei", "USER");
+			User user2 = new User("admin", "$2a$09$WiLyQkmR52Asm7PfHzT51.JAHgNxp4y4gM67790rHChx2DbfvuJTG", "ADMIN");
 			usRepository.save(user1);
 			usRepository.save(user2);
 			

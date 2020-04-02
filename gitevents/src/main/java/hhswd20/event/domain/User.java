@@ -14,24 +14,27 @@ public class User {
 	@Column(name = "id", nullable = false, updatable = false)
 	private Long id;
 	
+	//username uniikki rajoitus
 	@Column(name = "username", nullable = false, unique = true)
 	private String username;
+	
+	@Column(name = "password", nullable = false)
+	private String passwordHash;
 	
 	@Column(name = "role", nullable = false)
 	private String role;
 	
-	@Column(name = "password", nullable = false)
-	private String passwordHash;
+	
 	
 	public User() {
 		
 	}
 
-	public User(String username, String role, String passwordHash) {
+	public User(String username, String passwordHash, String role) {
 		super();
 		this.username = username;
-		this.role = role;
 		this.passwordHash = passwordHash;
+		this.role = role;
 	}
 
 	public Long getId() {
@@ -67,3 +70,4 @@ public class User {
 	}
 	
 }
+

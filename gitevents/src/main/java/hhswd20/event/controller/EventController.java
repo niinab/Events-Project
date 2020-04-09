@@ -50,7 +50,6 @@ public class EventController {
 	}
 		
 	
-	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/newevent", method = RequestMethod.GET)
 	public String getNewEventForm(Model model) {
 		model.addAttribute("event", new Event());
@@ -62,7 +61,7 @@ public class EventController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveEvent(@ModelAttribute Event event) {
 		eventRepository.save(event);
-		return "redirected:/allevents";
+		return "redirect:/allevents";
 		
 	}
 	
@@ -70,7 +69,7 @@ public class EventController {
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteEvent(@PathVariable("id") Long eventId) {
 		eventRepository.deleteById(eventId);
-		return "redirect:../allevent";
+		return "redirect:../allevents";
 	}
 	
 	@PreAuthorize("hasAuthority('ADMIN')")

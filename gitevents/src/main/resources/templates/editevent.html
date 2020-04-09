@@ -13,12 +13,13 @@
 <input type="hidden" th:field="*{id}" class="form-control" />
 </div>
 <div class="form-group">
-<label class="control-label col-sm-2" for="name">Name:</label>
-<input type="text" class="form-control" id="name" th:field="*{name}"/>
+<label for="name">Name:</label>
+<input type="text" class="form-control" id="name" placeholder="Name" th:field="*{name}"/>
 </div>
 <div class="form-group">
-<label class="control-label col-sm-2" for="date">Date:</label>
-<input type="text" class="form-control" th:field="*{date}"/> </div>
+<label for="name">Date:</label>
+<input type="text" class="form-control" id="date" placeholder="Date" th:field="*{date}"/>
+</div>
 <div class="form-group">
 <label class="control-label col-sm-2" for="time">Time:</label>
 <input type="text" class="form-control" th:field="*{time}"/></div>
@@ -39,5 +40,6 @@
  <input type="submit" value="Save"></input>
 
 </form>
+
 </body>
 </html>

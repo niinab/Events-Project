@@ -6,19 +6,24 @@
 <link type="text/css" rel="stylesheet" href="css/bootstrap-4.0.0-dist/css/bootstrap.min.css" th:href="@{css/bootstrap-4.0.0-dist/css/bootstrap.min.css}" />
 </head>
 <body>
-<h1>New event</h1>
+<h1>New event</h1> 
 <form action ="#" th:action="@{/save}" th:object=${event} method="post">
 <p>Name: <input type ="text" th:field="${event.name}" /></p>
 <p>Date: <input type ="text" th:field="${event.date}" /></p>
 <p>Time: <input type ="text" th:field="${event.time}" /></p>
 <p>Description: <input type ="text" th:field="${event.description}" /></p>
-<p>Price: <input type ="text" th:field="${event.price}" /></p>
-<p>Location: <input type="text" th:field="${event.location}" /><p>
+<p>Price: <input type ="text" th:field="${event.price}" th:errorclass="fieldError"/>
+<!-- <p th:if="${#fields.hasErrors('Price')}" th:errors="*{Price}">Incorrect price</p>-->
 
 <div style="clear: both; display: block; height: 10px;"></div>						
 <label for="categlist">Category</label>
-<select id="categlist" th:field="${event.category}" class="form-control">
+<select id="categlist" th:field="${event.category}" class="form-group">
 <option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+ </select>
+<div style="clear: both; display: block; height: 10px;"></div>						
+<label for="locationlist">Location</label>
+<select id="locationlist" th:field="${event.location}" class="form-group">
+<option th:each="location: ${locations}" th:value="${location.locationid}" th:text="${location.name}"></option>
  </select>
 <div style="clear: both; display: block; height: 10px;"></div>
 <input class="btn btn-success" type="submit" value ="Submit" /> <input class="btn btn-danger" type="reset" value ="Reset" />

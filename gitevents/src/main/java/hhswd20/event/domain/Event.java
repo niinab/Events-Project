@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -15,6 +17,9 @@ public class Event {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	//määritellään, että nimi ei saa olla null, ja min pituus 2 merkkiä
+	@NotNull
+	@Size(min=2, max=40)
 	private String name;
 	private String date;
 	private String time;

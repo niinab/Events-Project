@@ -9,6 +9,7 @@ public interface EventRepository extends CrudRepository<Event, Long> {
 	
 	List<Event> findByName(String name);
 	List<Event> findByDate(String date);
+	List<Event> deleteByName(String name);
 	public Event findById(String id);
 
 }

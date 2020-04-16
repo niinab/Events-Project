@@ -3,12 +3,16 @@ package hhswd20.event.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -56,6 +60,15 @@ public class EventController {
 		model.addAttribute("categories", catRepository.findAll());
 		model.addAttribute("locations", locRepository.findAll());
 		return "eventform";
+	}
+	
+	//Name validointi
+	@PostMapping("/newevent")
+	public String checkEventName(@Valid Event event, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "validform";
+		}
+		return "allevents";
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)

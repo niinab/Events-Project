@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+//CrudRepository rajapinnan parametrisointi
 
 public interface EventRepository extends CrudRepository<Event, Long> {
+	
+	//Metodiesittelyt 
 	
 	List<Event> findByName(String name);
 	List<Event> findByDate(String date);

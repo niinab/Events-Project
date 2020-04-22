@@ -22,7 +22,7 @@ public class EventRepositoryTest {
 	@Autowired
 	private EventRepository eventRepository;
 	
-	//Etsi tietyllä nimellä ja päivämäärällä testi
+	//Testaa etsiä tapahtuma tietyllä nimellä ja päivämäärällä
 	@Test
 	public void findByNameShouldReturnEvent() {
 		List<Event> events = eventRepository.findByName("Pilates");
@@ -30,7 +30,7 @@ public class EventRepositoryTest {
 		assertThat(events.get(0).getDate()).isEqualTo("24.05.2020");
 	}
 	
-	//Luo uusi tapahtuma testi
+	//Testaa luoda uusi tapahtuma
 /**	@Test
 	public void createNewEvent() {
 		Event event = new Event("Testievent", "26.05.2020", "klo 18.00", 16.95, new Category("Test"), new Location("Testilokaatio"));

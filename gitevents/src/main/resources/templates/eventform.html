@@ -9,7 +9,7 @@
 <h1>New event</h1> 
 <form action ="#" th:action="@{/save}" th:object=${event} method="post">
 <p>Name: <input type ="text" th:field="${event.name}" /></p>
-<!-- <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td> -->
+<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
 <p>Date: <input type ="text" th:field="${event.date}" /></p>
 <p>Time: <input type ="text" th:field="${event.time}" /></p>
 <p>Description: <input type ="text" th:field="${event.description}" /></p>

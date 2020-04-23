@@ -1,4 +1,4 @@
-package hhswd20.event;
+/**package hhswd20.event;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
@@ -31,4 +31,4 @@ public class LocationRepositoryTest {
 		assertThat(location).hasSize(1);
 	}
 
-}
+}*/

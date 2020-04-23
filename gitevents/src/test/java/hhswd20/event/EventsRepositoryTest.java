@@ -17,7 +17,7 @@ import hhswd20.event.domain.Location;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class EventRepositoryTest {
+public class EventsRepositoryTest {
 	
 	@Autowired
 	private EventRepository eventRepository;

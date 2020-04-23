@@ -2,16 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org" 
 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Eventlist</title>
 <link type="text/css" rel="stylesheet" href="css/bootstrap-4.0.0-dist/css/bootstrap.min.css" th:href="@{css/bootstrap-4.0.0-dist/css/bootstrap.min.css}" />
 </head>
-<h1>All events</h1>
 <body>
+
+<h1 th:text="#{welcome.message}"></h1>
+
+<span th:text="#{language.change}"></span>:
+<select id="locales">
+    <option value=""></option>
+    <option value="en" th:text="#{lang.eng}"></option>
+    <option value="de" th:text="#{lang.de}"></option>
+</select>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#locales").change(function () {
+            var selectedOption = $('#locales').val();
+            if (selectedOption != '') {
+                window.location.replace('?lang=' + selectedOption);
+            }
+        });
+    });
+    </script>
+
 <div class="col-md-4">
 	</div>
 	<div class="col-md-4">
-	<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>  
+	<br>
+	<h3 th:inline="text">You are logged in as [[${#httpServletRequest.remoteUser}]]</h3>  
 	</div>
 	<div class="col-md-4" style="padding:20px 0">
 	<form th:action="@{/logout}" method="post">
@@ -47,5 +69,6 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 </table>
 
 <a href="/newevent" class="btn btn-success">New event</a>
+
 </body>
 </html>

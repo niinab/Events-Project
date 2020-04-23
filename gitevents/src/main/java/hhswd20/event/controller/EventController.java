@@ -94,6 +94,7 @@ public class EventController {
 		model.addAttribute("locations", locRepository.findAll());
 		return "editevent";
 	}
+	
 }
 
 

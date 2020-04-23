@@ -59,7 +59,7 @@ public class EventsApplication {
 			//user/password1, admin/password2
 			User user1 = new User("user", "$2a$09$Edug0wYYjf4yRZsw6BanmeHfrB/97Fwi.MFn78eLiAMgUuOlnl.ei", "USER");
 			User user2 = new User("admin", "$2a$09$WiLyQkmR52Asm7PfHzT51.JAHgNxp4y4gM67790rHChx2DbfvuJTG", "ADMIN");
-			//usRepository.save(user1);
+			usRepository.save(user1);
 			usRepository.save(user2);
 			
 			log.info("fetch all events");
